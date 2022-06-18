@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">摸鱼君</string>
+    <string name="title_home">首页</string>
+    <string name="title_dashboard">博客</string>
+    <string name="title_notifications">音乐</string>
+    <string name="title_message">消息</string>
+    <string name="title_me">我的</string>
+
+    <string name="play">播放</string>
+    <string name="notify_of_play">播放时的通知栏展示</string>
+
+    <string name="play_repeat">列表循环</string>
+    <string name="play_repeat_once">单曲循环</string>
+    <string name="play_shuffle">随机播放</string>
+
+    <string name="unfinished">这是个前排吃瓜的按钮！ ^_^</string>
+</resources>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        tools:context=".ui.page.me.detailAc.ProtocolActivity">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="2dp" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="摸鱼君软件使用条例"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:autoLink="web"
+                    android:padding="12dp"
+                    android:text="
+更新时间：2022年1月25日
+\n\n
+一、关于
+\n
+本许可条款是开发者（以下简称我）与您之间达成的协议。一旦使用该软件，则表明您接受这些条款。如果您不接受这些条款，请不要使用该软件。请阅读本条款的内容。
+\n\n
+二、安装和使用权利
+\n
+如果您的设备运行获得有效许可（程序以指定签名安装）的我开发的软件（请访问在线服务了解具体版本），则可在该设备上执行该软件任意数量的副本。
+\n\n
+三、基于网络的服务和其他支持服务
+\n
+使用某些功能也表示您同意我们传输某些标准计算机信息以便获取基于服务。软件提供基于互联网的服务，并且可能随时更改或取消这些服务。某些情况下，连接建立时，您不会另外收到通知。您可以关闭这个功能或者不使用这项服务（于设备权限管理中禁用相关权限）。使用此功能即表示您同意传输这些信息。
+\n\n
+四、支持服务
+\n
+如果该软件不是按原样提供的（签名被篡改等情况），我不为其提供任何支持服务。
+\n\n
+五、移动设备信息
+\n
+使用网络协议，向相应的系统发送计算机信息，例如您的网络协议地址、操作系统类型及您使用的软件的名称和版本、安装软件的设备的语言代码等。使用这些信息是为了向您提供基于网络的服务。
+\n\n
+六、许可范围
+\n
+该软件只授予使用许可，而非出售。本协议只授予您某些使用该软件的权利。我保留所有其他权利。除非适用法律给予您更多权利（尽管有此项限制），否则您只能在本协议明示规定的范围内使用该软件。在按规定使用软件时，您必须遵守软件中的任何技术限制，这些限制只允许您以特定的方式使用软
+件。
+\n
+限制如下：
+\n
+1．您不可以绕过该软件中的任何技术限制。
+\n
+2．对软件进行反向工程、反编译或反汇编，或对软件内部资源文件进行篡改。（尽管有此项限制，但如果适用法律明示允许上述活动，并仅在适用法律明示允许的范围内从事上述活动则不在此限）
+\n
+3．制作超过本协议所规定或适用法律（尽管已有本协议的这一限制）所允许数量的软件副本。
+\n
+4．出租、租赁或出借该软件。
+\n
+5．向任何第三方转让该软件或本协议。
+\n\n
+七、给予权力
+\n
+您可以制作备份方便重新安装或发布本软件以便他人下载。
+\n\n
+八、完整协议
+\n
+本协议以及您使用的补充、更新、基于网络的服务和支持服务的有关条款，共同构成了该软件和支持服务的完整协议。
+\n\n
+九、保证免责条款
+\n
+该软件按原样授予许可。使用该软件的风险需要您自己承担。我不提供任何其他明示的担保、保证或条件。根据所在地区的法律，您可能拥有其他本协议无法更改的消费者权利。在您当地法律允许的范围内，我排除有关适销性、针对特定目的的适用性和不侵权
+\n\n
+十、最终解释权
+\n
+本条例的最终解释权归本开发者所有。
+\n\n"
+                    android:textSize="14sp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

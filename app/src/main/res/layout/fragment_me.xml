@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.example.littlebeachblog.ui.state.MeViewModel" />
+
+        <variable
+            name="click"
+            type="com.example.littlebeachblog.ui.page.me.MeFragment.ClickProxy" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPageBackgroundWX">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bg"
+            errorDrawable="@{@drawable/bg_music}"
+            imageUrl="@{vm.userInfo.background}"
+            placeHolder="@{@drawable/bg_music}"
+            android:layout_width="match_parent"
+            android:layout_height="276dp"
+            android:alpha="0"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/bg_music" />
+
+        <com.example.littlebeachblog.ui.view.DragCoordinatorLayout
+            android:id="@+id/drag_coordinator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.page.music.MusicFragment">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="236dp"
+                android:background="@color/transparent"
+                app:elevation="0px">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/collapse_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:contentScrim="@color/transparent"
+                    app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+                    app:statusBarScrim="@color/transparent"
+                    app:toolbarId="@id/toolbar">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/card_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:layout_marginTop="?attr/actionBarSize">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/materialCardView"
+                            onClickWithDebouncing="@{()->click.clickAvatarBig()}"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="39dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginBottom="12dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="1dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/iv_avatar">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/white">
+
+                                <androidx.constraintlayout.widget.Guideline
+                                    android:id="@+id/avatar_guide"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    app:layout_constraintGuide_begin="39dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_nike"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:ellipsize="end"
+                                    android:maxLines="1"
+                                    android:text="@{vm.userInfo.nickName}"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.5"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/avatar_guide"
+                                    tools:text="凯阿凯ak" />
+
+                                <TextView
+                                    android:id="@+id/tv_followed"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:text="0"
+                                    android:textSize="13sp"
+                                    app:layout_constraintEnd_toStartOf="@+id/textView13"
+                                    app:layout_constraintHorizontal_bias="0.5"
+                                    app:layout_constraintHorizontal_chainStyle="packed"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/tv_nike" />
+
+                                <TextView
+                                    android:id="@+id/textView13"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="2dp"
+                                    android:layout_marginTop="8dp"
+                                    android:text="关注"
+                                    android:textSize="13sp"
+                                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_followed"
+                                    app:layout_constraintEnd_toStartOf="@+id/tv_fan"
+                                    app:layout_constraintHorizontal_bias="0.5"
+                                    app:layout_constraintStart_toEndOf="@+id/tv_followed"
+                                    app:layout_constraintTop_toBottomOf="@+id/tv_nike" />
+
+                                <TextView
+                                    android:id="@+id/tv_fan"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:text="0"
+                                    android:textSize="13sp"
+                                    app:layout_constraintEnd_toStartOf="@+id/textView14"
+                                    app:layout_constraintHorizontal_bias="0.5"
+                                    app:layout_constraintHorizontal_chainStyle="packed"
+                                    app:layout_constraintStart_toEndOf="@+id/textView13"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/tv_nike" />
+
+                                <TextView
+                                    android:id="@+id/textView14"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="2dp"
+                                    android:layout_marginTop="8dp"
+                                    android:text="粉丝"
+                                    android:textSize="13sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.5"
+                                    app:layout_constraintStart_toEndOf="@+id/tv_fan"
+                                    app:layout_constraintTop_toBottomOf="@+id/tv_nike" />
+
+                                <TextView
+                                    android:id="@+id/tv_score"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:text="@{String.valueOf(vm.userInfo.score)}"
+                                    android:textSize="13sp"
+                                    app:layout_constraintEnd_toStartOf="@+id/textView16"
+                                    app:layout_constraintHorizontal_bias="0.5"
+                                    app:layout_constraintHorizontal_chainStyle="packed"
+                                    app:layout_constraintStart_toEndOf="@+id/tv_fan"
+                                    app:layout_constraintTop_toBottomOf="@+id/tv_nike"
+                                    tools:text="0" />
+
+                                <TextView
+                                    android:id="@+id/textView16"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="2dp"
+                                    android:layout_marginTop="8dp"
+                                    android:text="积分"
+                                    android:textSize="13sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.5"
+                                    app:layout_constraintStart_toEndOf="@+id/tv_score"
+                                    app:layout_constraintTop_toBottomOf="@+id/tv_nike" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/iv_avatar"
+                            avatarUrl="@{vm.userInfo.avatar}"
+                            onClickWithDebouncing="@{()->click.clickAvatarBig()}"
+                            android:layout_width="78dp"
+                            android:layout_height="78dp"
+                            android:elevation="2dp"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearance="@style/circleStyle"
+                            app:srcCompat="@drawable/default_avatar" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:alpha="0"
+                        android:background="@color/white"
+                        app:contentInsetStart="0px"
+                        app:layout_collapseMode="pin">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/toolbar_content"
+                            onClickWithDebouncing="@{()->click.clickAvatarSmall()}"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:visibility="gone">
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:id="@+id/iv_avatar_small"
+                                avatarUrl="@{vm.userInfo.avatar}"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                app:shapeAppearance="@style/circleStyle"
+                                app:srcCompat="@drawable/default_avatar" />
+
+                            <TextView
+                                android:id="@+id/tv_nick_small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:text="@{vm.userInfo.nickName}"
+                                android:textColor="@color/black"
+                                tools:text="凯啊凯ak" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </com.google.android.material.appbar.MaterialToolbar>
+
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scroll_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="3dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="1dp">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <com.example.littlebeachblog.ui.view.ItemLayout
+                                onClickWithDebouncing="@{()->click.playHistory()}"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                app:text="播放历史" />
+
+                            <com.example.littlebeachblog.ui.view.ItemLayout
+                                onClickWithDebouncing="@{()->click.scoreRecord()}"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                app:text="积分记录" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="3dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="1dp">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <com.example.littlebeachblog.ui.view.ItemLayout
+                                onClickWithDebouncing="@{()->click.changePassword()}"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                app:text="修改密码" />
+
+                            <com.example.littlebeachblog.ui.view.ItemLayout
+                                onClickWithDebouncing="@{()->click.feedback()}"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                app:text="意见反馈" />
+
+                            <com.example.littlebeachblog.ui.view.ItemLayout
+                                onClickWithDebouncing="@{()->click.about()}"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                app:text="关于" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.button.MaterialButton
+                        onClickWithDebouncing="@{()->click.logout()}"
+                        visible="@{vm.logoutBtnVisibility}"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="42dp"
+                        android:layout_marginEnd="16dp"
+                        android:backgroundTint="@color/white"
+                        android:clickable="true"
+                        android:text="退出登录"
+                        android:textColor="@color/red"
+                        app:elevation="1dp" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </com.example.littlebeachblog.ui.view.DragCoordinatorLayout>
+    </FrameLayout>
+
+</layout>

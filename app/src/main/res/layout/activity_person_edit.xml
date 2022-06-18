@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.example.littlebeachblog.ui.state.PersonViewModel" />
+
+        <variable
+            name="click"
+            type="com.example.littlebeachblog.ui.page.me.detailAc.PersonEditActivity.PersonEditClickProxy" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        tools:context=".ui.page.me.detailAc.PersonEditActivity">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:elevation="2dp"
+                    android:fitsSystemWindows="true" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:onClick="@{()->click.avatarClick()}"
+                        app:cardCornerRadius="0dp"
+                        app:cardElevation="0dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:text="头像"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                avatarUrl="@{vm.userInfoLd.avatar}"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="16dp"
+                                android:layout_marginBottom="10dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:shapeAppearance="@style/circleStyle"
+                                tools:srcCompat="@mipmap/avatar1" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:onClick="@{()->click.nickClick()}"
+                        app:cardCornerRadius="0dp"
+                        app:cardElevation="0dp">
+
+                        <com.example.littlebeachblog.ui.view.ValueView
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            app:text="昵称"
+                            app:value="@{vm.userInfoLd.nickName}" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:onClick="@{()->click.sexClick()}"
+                        app:cardCornerRadius="0dp"
+                        app:cardElevation="0dp">
+
+                        <com.example.littlebeachblog.ui.view.ValueView
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            app:text="性别"
+                            app:value="@{vm.sexLd}" />
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:onClick="@{()->click.labelClick()}"
+                        app:cardCornerRadius="0dp"
+                        app:cardElevation="0dp">
+
+                        <com.example.littlebeachblog.ui.view.ValueView
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            app:text="标签"
+                            app:value="@{vm.labelLd}" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

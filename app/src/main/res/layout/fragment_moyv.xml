@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.example.littlebeachblog.ui.state.home_state_child.MoYvViewModel" />
+
+        <variable
+            name="adapter"
+            type="androidx.recyclerview.widget.ConcatAdapter" />
+
+        <variable
+            name="click"
+            type="com.example.littlebeachblog.ui.page.home.home_page_child.MoYvFragment.ClickProxy" />
+
+
+    </data>
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        refreshListener="@{click.refresh}"
+        refreshStateOver="@{vm.refreshStateChanged}"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_fish"
+                adapter="@{adapter}"
+                bottomDecoration="@{8}"
+                itemViewCacheSize="@{0}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        </androidx.core.widget.NestedScrollView>
+
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+</layout>
